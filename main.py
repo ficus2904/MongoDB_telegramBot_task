@@ -52,7 +52,7 @@ async def query_mongodb(input_data):
     result = list(collection.aggregate(pipeline))[0]
     output = add_null_steps(pd.DataFrame(result),input_data)
 
-    return output
+    return json.dumps(output)
 
 # Creating the bot and defining the handler
 with open("key.txt", "r") as file:
